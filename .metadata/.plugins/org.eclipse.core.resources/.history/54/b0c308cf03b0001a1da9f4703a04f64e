@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AzureRestController {
 
-	@GetMapping("/")
+	@GetMapping("/getResult")
 	public String getResult() {
 		return "I am a service to validate Azure Pipe Line ";
 	}
