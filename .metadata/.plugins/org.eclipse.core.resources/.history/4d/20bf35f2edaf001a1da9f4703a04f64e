@@ -1,0 +1,11 @@
+package com.azr.boot;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class AzureRestController {
+
+	public String getResult() {
+		return "I am a service to validate Azure Pipe Line ";
+	}
+}
