@@ -9,9 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.azr.boot</groupId>
-	<artifactId>AzureTest</artifactId>
+	<artifactId>AzureTest2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>AzureTest</name>
+	<packaging>war</packaging>
+	<name>AzureTest2</name>
 	<description>Azure Pipeline test project</description>
 
 	<properties>
@@ -22,12 +23,20 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
+		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web-services</artifactId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -40,12 +49,23 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
+	
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+			        <mainClass>fully qualified Main Class name</mainClass>
+			    </configuration>
+			    <executions>
+			        <execution>
+			            <goals>
+			                <goal>repackage</goal>
+			            </goals>
+			        </execution>
+			     </executions>
 			</plugin>
 		</plugins>
 	</build>
